@@ -1,0 +1,23 @@
+[
+  {
+    "question": "What is an IP address ?",
+    "answers": [
+      {
+        "answer": "An internet browser.",
+        "correct": false
+      },
+      {
+        "answer": "A way to connect with social media.",
+        "correct": false
+      },
+      {
+        "answer": "A location for files on your computer.",
+        "correct": false
+      },
+      {
+        "answer": "A a numerical identifier for computers",
+        "correct": true
+      }
+    ]
+  }
+]

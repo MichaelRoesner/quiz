@@ -1,0 +1,108 @@
+[
+  {
+    "question": "What is an IP address ?",
+    "answers": [
+      {
+        "answer": "An internet browser.",
+        "correct": false
+      },
+      {
+        "answer": "A way to connect with social media.",
+        "correct": false
+      },
+      {
+        "answer": "A location for files on your computer.",
+        "correct": false
+      },
+      {
+        "answer": "A a numerical identifier for computers",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "question": "What is HTML?",
+    "answers": [
+      {
+        "answer": "Hyper Text Markup Language and is a programming language.",
+        "correct": false
+      },
+      {
+        "answer": "A famous rock band from the 1970s.",
+        "correct": false
+      },
+      {
+        "answer": "A standard markup language for creating web pages.",
+        "correct": true
+      },
+      {
+        "answer": "A name of a popular video game.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "What is Java?",
+    "answers": [
+      {
+        "answer": "A type of coffee.",
+        "correct": false
+      },
+      {
+        "answer": "An island in Indonesia.",
+        "correct": false
+      },
+      {
+        "answer": "A programming language.",
+        "correct": true
+      },
+      {
+        "answer": "A brand of smartphones.",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "What is Medium?",
+    "answers": [
+      {
+        "answer": "Not this.",
+        "correct": false
+      },
+      {
+        "answer": "Not this.",
+        "correct": false
+      },
+      {
+        "answer": "This.",
+        "correct": true
+      },
+      {
+        "answer": "Not this.",
+        "correct": false
+      }
+    ]
+  }
+,
+  {
+    "question": "Working?",
+    "answers": [
+      {
+        "answer": "No.",
+        "correct": false
+      },
+      {
+        "answer": "No.",
+        "correct": false
+      },
+      {
+        "answer": "Yes.",
+        "correct": true
+      },
+      {
+        "answer": "No.",
+        "correct": false
+      }
+    ]
+  }
+]
