@@ -16,31 +16,39 @@ import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Represents the panel displaying a quiz question with answer options.
+ */
 public class QuestionPanel extends JPanel {
 
     // Components for the QuestionPanel
-    private final RoundLabel option1Label;
     private final MainFrame parentFrame;
     private final Map<RoundLabel, Answer> labelAnswers;
     private final QuizModel quizModel;
     private final Timer questionTimer;
     private final JLabel timerLabel;
     private final StrokedLabel questionLabel;
-    private final RoundLabel option2Label;
-    private final RoundLabel option3Label;
-    private final RoundLabel option4Label;
+    private final RoundLabel optionA;
+    private final RoundLabel optionB;
+    private final RoundLabel optionC;
+    private final RoundLabel optionD;
     private RoundLabel selectedLabel;
     private boolean buttonClicked;
 
     /**
-     * Create the panel.
+     * Creates a new instance of the QuestionPanel.
+     *
+     * @param mainFrame  The main application frame.
+     * @param quizModel  The model containing quiz data and logic.
      */
     public QuestionPanel(MainFrame mainFrame, QuizModel quizModel) {
+        // Initialization and setup
         this.parentFrame = mainFrame;
         labelAnswers = new HashMap<>();
         this.quizModel = quizModel;
         this.selectedLabel = null;
 
+        // Panel configuration
         setBackground(new Color(122, 5, 194));
         setLayout(null);
 
@@ -60,66 +68,67 @@ public class QuestionPanel extends JPanel {
 
 
         // Initialize and configure option labels
-        option1Label = new RoundLabel("New button");
-        option1Label.setBounds(53, 222, 280, 61);
-        option1Label.addMouseListener(new MouseAdapter() {
+        optionA = new RoundLabel("New button");
+        optionA.setBounds(53, 222, 280, 61);
+        optionA.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 SoundPlayer.playSound(ResourcePath.SOUND_CLICK_PATH);
-                selectedLabel = option1Label;
-                option1Label.changeBackgroundColor(OptionColor.selectedColor);
-                option2Label.setDefaultColor();
-                option3Label.setDefaultColor();
-                option4Label.setDefaultColor();
+                selectedLabel = optionA;
+                optionA.changeBackgroundColor(OptionColor.selectedColor);
+                optionB.setDefaultColor();
+                optionC.setDefaultColor();
+                optionD.setDefaultColor();
             }
         });
-        add(option1Label);
+        add(optionA);
 
-        option2Label = new RoundLabel("New button");
-        option2Label.setBounds(391, 222, 280, 61);
-        option2Label.addMouseListener(new MouseAdapter() {
+        optionB = new RoundLabel("New button");
+        optionB.setBounds(391, 222, 280, 61);
+        optionB.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 SoundPlayer.playSound(ResourcePath.SOUND_CLICK_PATH);
-                selectedLabel = option2Label;
-                option2Label.changeBackgroundColor(OptionColor.selectedColor);
-                option1Label.setDefaultColor();
-                option3Label.setDefaultColor();
-                option4Label.setDefaultColor();
+                selectedLabel = optionB;
+                optionB.changeBackgroundColor(OptionColor.selectedColor);
+                optionA.setDefaultColor();
+                optionC.setDefaultColor();
+                optionD.setDefaultColor();
             }
         });
-        add(option2Label);
+        add(optionB);
 
-        option3Label = new RoundLabel("New button");
-        option3Label.setBounds(53, 329, 280, 61);
-        option3Label.addMouseListener(new MouseAdapter() {
+        optionC = new RoundLabel("New button");
+        optionC.setBounds(53, 329, 280, 61);
+        optionC.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 SoundPlayer.playSound(ResourcePath.SOUND_CLICK_PATH);
-                selectedLabel = option3Label;
-                option3Label.changeBackgroundColor(OptionColor.selectedColor);
-                option1Label.setDefaultColor();
-                option2Label.setDefaultColor();
-                option4Label.setDefaultColor();
+                selectedLabel = optionC;
+                optionC.changeBackgroundColor(OptionColor.selectedColor);
+                optionA.setDefaultColor();
+                optionB.setDefaultColor();
+                optionD.setDefaultColor();
             }
         });
-        add(option3Label);
+        add(optionC);
 
-        option4Label = new RoundLabel("New button");
-        option4Label.setBounds(391, 329, 280, 61);
-        option4Label.addMouseListener(new MouseAdapter() {
+        optionD = new RoundLabel("New button");
+        optionD.setBounds(391, 329, 280, 61);
+        optionD.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 SoundPlayer.playSound(ResourcePath.SOUND_CLICK_PATH);
-                selectedLabel = option4Label;
-                option4Label.changeBackgroundColor(OptionColor.selectedColor);
-                option1Label.setDefaultColor();
-                option2Label.setDefaultColor();
-                option3Label.setDefaultColor();
+                selectedLabel = optionD;
+                optionD.changeBackgroundColor(OptionColor.selectedColor);
+                optionA.setDefaultColor();
+                optionB.setDefaultColor();
+                optionC.setDefaultColor();
             }
         });
-        add(option4Label);
+        add(optionD);
 
+        // Continue Button
         RoundButton continueButton = new RoundButton("next");
         continueButton.setBounds(585, 413, 85, 31);
         continueButton.customizeFont(25);
@@ -171,31 +180,22 @@ public class QuestionPanel extends JPanel {
 
     // Method to check the selected option and handle accordingly
     private void checkSelectedOption(RoundLabel selectedLabel) {
-
-        if(selectedLabel == null)
-        {
+        // Check if no option is selected
+        if(selectedLabel == null) {
             quizModel.recordAnswer(null);
-
-
-        }
-
-        else
-        {
+        } else {
+            // Record the selected answer and provide feedback
             quizModel.recordAnswer(labelAnswers.get(selectedLabel));
             Answer answer = labelAnswers.get(selectedLabel);
-            if(answer.isCorrect())
-            {
+            if(answer.isCorrect()) {
+                // Play correct sound and change background color to correct color
                 SoundPlayer.playSound(ResourcePath.SOUND_RIGHT_PATH);
                 selectedLabel.changeBackgroundColor(OptionColor.correctColor);
-
-            }
-            else
-            {
+            } else {
+                // Play wrong sound and change background color to wrong color
                 SoundPlayer.playSound(ResourcePath.SOUND_WRONG_PATH);
                 selectedLabel.changeBackgroundColor(OptionColor.wrongColor);
-
             }
-
         }
 
         // Use Timer to introduce a delay before loading the next question or transitioning to the score panel
@@ -207,17 +207,20 @@ public class QuestionPanel extends JPanel {
 
     // Method to perform operations with a delay (e.g., reset labels, load next question, switch to score panel)
     private void operationWithDelay() {
-
+        // Reset the selected label's color
         if (selectedLabel != null) {
             selectedLabel.setDefaultColor();
             selectedLabel = null;
         }
 
+        // Check if there are more questions
         if (quizModel.hasMoreQuestions()) {
+            // Load the next question
             loadNextQuestion();
         } else {
+            // Switch to the score panel
             parentFrame.switchToScorePanel(quizModel.getAnsweredQuestion(), quizModel.getScore());
-            //stops question timer to prevent switching to the ScorePanel again. Jesus ...
+            // Stop the question timer to prevent switching to the ScorePanel again.
             questionTimer.stop();
         }
     }
@@ -235,21 +238,21 @@ public class QuestionPanel extends JPanel {
 
             // Populate option labels with answer text and associate answers with labels
             Answer answer = currentQuestion.getAnswers().get(0);
-            option1Label.setText(answer.getText());
-            labelAnswers.put(option1Label, answer);
+            optionA.setText(answer.getText());
+            labelAnswers.put(optionA, answer);
 
             answer = currentQuestion.getAnswers().get(1);
-            option2Label.setText(answer.getText());
-            labelAnswers.put(option2Label, answer);
+            optionB.setText(answer.getText());
+            labelAnswers.put(optionB, answer);
 
 
             answer = currentQuestion.getAnswers().get(2);
-            option3Label.setText(answer.getText());
-            labelAnswers.put(option3Label, answer);
+            optionC.setText(answer.getText());
+            labelAnswers.put(optionC, answer);
 
             answer = currentQuestion.getAnswers().get(3);
-            option4Label.setText(answer.getText());
-            labelAnswers.put(option4Label, answer);
+            optionD.setText(answer.getText());
+            labelAnswers.put(optionD, answer);
 
             // Reset the timer label
             timerLabel.setText(String.valueOf(quizModel.getTimePerQuestion()));
