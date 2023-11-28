@@ -231,9 +231,9 @@ public class QuestionPanel extends JPanel {
 
 
             answer = currentQuestion.getAnswers().get(2);
-
             option3Label.setText(answer.getText());
             labelAnswers.put(option3Label, answer);
+
             answer = currentQuestion.getAnswers().get(3);
             option4Label.setText(answer.getText());
             labelAnswers.put(option4Label, answer);
