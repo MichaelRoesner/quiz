@@ -30,6 +30,7 @@ public class QuestionPanel extends JPanel {
     private final RoundLabel option3Label;
     private final RoundLabel option4Label;
     private RoundLabel selectedLabel;
+    private boolean buttonClicked;
 
     /**
      * Create the panel.
@@ -122,12 +123,21 @@ public class QuestionPanel extends JPanel {
         RoundButton continueButton = new RoundButton("next");
         continueButton.setBounds(585, 413, 85, 31);
         continueButton.customizeFont(25);
+        // Add a boolean variable to track whether the button has been clicked
+        buttonClicked = false;
         continueButton.addActionListener(e -> {
-            if (selectedLabel != null) {
-                checkSelectedOption(selectedLabel);
+            // Check if the button has already been clicked
+            if (!buttonClicked) {
+                if (selectedLabel != null) {
+                    checkSelectedOption(selectedLabel);
+                }
+
+                // Set the variable to true to indicate that the button has been clicked
+                buttonClicked = true;
             }
         });
         add(continueButton);
+
 
         timerLabel = new JLabel("29");
         timerLabel.setForeground(new Color(255, 255, 255));
@@ -166,6 +176,7 @@ public class QuestionPanel extends JPanel {
         {
             quizModel.recordAnswer(null);
 
+
         }
 
         else
@@ -176,11 +187,13 @@ public class QuestionPanel extends JPanel {
             {
                 SoundPlayer.playSound(ResourcePath.SOUND_RIGHT_PATH);
                 selectedLabel.changeBackgroundColor(OptionColor.correctColor);
+
             }
             else
             {
                 SoundPlayer.playSound(ResourcePath.SOUND_WRONG_PATH);
                 selectedLabel.changeBackgroundColor(OptionColor.wrongColor);
+
             }
 
         }
@@ -242,6 +255,7 @@ public class QuestionPanel extends JPanel {
             timerLabel.setText(String.valueOf(quizModel.getTimePerQuestion()));
             // Start the timer
             questionTimer.start();
+            buttonClicked = false;
         }
     }
 
