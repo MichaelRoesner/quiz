@@ -3,7 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/QuizApp_jar</output-path>
     <root id="archive" name="QuizApp.jar">
       <element id="module-output" name="QuizApp" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/java-json.jar" path-in-jar="/" />
+      <element id="library" level="project" name="lib" />
     </root>
   </artifact>
 </component>

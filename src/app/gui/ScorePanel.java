@@ -81,7 +81,7 @@ public class ScorePanel extends JPanel {
         add(scrollPane);
 
         // Play sound based on the user's score
-        if (score >= (Math.floor(answeredQuestion.size()*0.7))) { // ~70%
+        if ((score > (int)(Math.floor(answeredQuestion.size()*0.7)))) { // ~70%
             SoundPlayer.playSound(ResourcePath.SOUND_WIN_PATH);
         } else {
             SoundPlayer.playSound(ResourcePath.SOUND_LOSE_PATH);
