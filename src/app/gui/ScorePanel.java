@@ -80,8 +80,8 @@ public class ScorePanel extends JPanel {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         add(scrollPane);
 
-        // Play sound based on the user's score
-        if ((score > (int)(Math.floor(answeredQuestion.size()*0.7)))) { // ~70%
+        // Play sound based on the user's score ( Number of Questions should be greater > 1)
+        if ((score > (int)(answeredQuestion.size()*0.7))) { // ~70%
             SoundPlayer.playSound(ResourcePath.SOUND_WIN_PATH);
         } else {
             SoundPlayer.playSound(ResourcePath.SOUND_LOSE_PATH);
