@@ -12,6 +12,7 @@ import java.awt.*;
 import java.util.Map;
 
 public class ScorePanel extends JPanel {
+    private final double WINRATE = 0.7;
 
     /**
      * Constructor for ScorePanel.
@@ -81,7 +82,7 @@ public class ScorePanel extends JPanel {
         add(scrollPane);
 
         // Play sound based on the user's score ( Number of Questions should be greater > 1)
-        if ((score > (int)(answeredQuestion.size()*0.7))) { // ~70%
+        if ((score > (int)(answeredQuestion.size()*WINRATE))) { // ~70%
             SoundPlayer.playSound(ResourcePath.SOUND_WIN_PATH);
         } else {
             SoundPlayer.playSound(ResourcePath.SOUND_LOSE_PATH);
