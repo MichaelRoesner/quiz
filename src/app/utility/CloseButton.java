@@ -28,6 +28,7 @@ public class CloseButton extends JButton {
             SoundPlayer.playSound(ResourcePath.SOUND_CLICK_PATH);
             if (parentFrame == null) {
                 SwingUtilities.getWindowAncestor(this).dispose();
+                System.exit(0); // !! REMOVE FOR GAME COLLECTION !!
             } else {
                 parentFrame.switchToWelcomePanel();
             }
