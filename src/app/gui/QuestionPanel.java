@@ -203,6 +203,8 @@ public class QuestionPanel extends JPanel {
         timer.setRepeats(false); // Make sure the timer only runs once
         timer.start();
 
+
+
     }
 
     // Method to perform operations with a delay (e.g., reset labels, load next question, switch to score panel)

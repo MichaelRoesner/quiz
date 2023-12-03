@@ -89,7 +89,6 @@ public class ScorePanel extends JPanel {
         }
     }
 
-
     /**
      * Override the getPreferredSize method to specify the preferred size of the panel.
      * @return The preferred size of the panel.

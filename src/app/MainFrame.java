@@ -42,6 +42,7 @@ public class MainFrame extends JFrame {
         // Remove other panels before switching
         removeOtherPanels();
 
+
         // Create and set the new content pane
         JPanel welcomePanel = new WelcomePanel(this);
         setContentPane(welcomePanel);
@@ -84,6 +85,8 @@ public class MainFrame extends JFrame {
                 remove(component);
             }
         }
+
+
     }
 }
 
