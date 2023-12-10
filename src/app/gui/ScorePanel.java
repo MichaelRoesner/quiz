@@ -32,9 +32,10 @@ public class ScorePanel extends JPanel {
         add(closeButton);
 
         // Title Label
-        StrokedLabel lblNewLabel = new StrokedLabel("Quiz Result", new Color(255, 255, 255), 2, ResourcePath.PIXEL, 40f);
+        StrokedLabel lblNewLabel = new StrokedLabel("Quiz Result", new Color(255, 255, 255), 1);
         lblNewLabel.setText("Quiz Results");
         //lblNewLabel.setForeground(new Color(0, 0, 0));
+        lblNewLabel.setFont(new Font("Arial", Font.BOLD, 18));
         lblNewLabel.setBounds(10, 6, 153, 34);
         add(lblNewLabel);
 

@@ -20,6 +20,15 @@ public class MainFrame extends JFrame {
             try {
                 // Create and display the main frame
                 MainFrame frame = new MainFrame();
+                frame.setFocusTraversalPolicy(
+                        new LayoutFocusTraversalPolicy() {
+                            @Override
+                            protected boolean accept(Component c) {
+                                // Ensure all components are focusable
+                                return c.isFocusable() || super.accept(c);
+                            }
+                        }
+                );
                 frame.setVisible(true);
             } catch (Exception e) {
                 // Print the stack trace in case of an exception

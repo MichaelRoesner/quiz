@@ -1,20 +1,20 @@
 package app.gui;
 
-import app.utility.FontLoader;
-import app.utility.ResourcePath;
+
+
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
-import java.io.IOException;
+
 
 /**
  * Custom JButton class that renders a round button with customizable appearance.
  */
 public class RoundButton extends JButton {
-    Font pixelFont;
+    private Color borderColor;
 
-    private final Color borderColor; // Field to keep track of the current border color
+    //private final Color borderColor; // Field to keep track of the current border color
 
     /**
      * Constructor to initialize the RoundButton with default settings.
@@ -26,17 +26,12 @@ public class RoundButton extends JButton {
         borderColor = Color.WHITE; // Default border color
         setForeground(Color.WHITE); // Default font color
         setBackground(Color.BLACK); // Default background color
-        try {
-            pixelFont = FontLoader.loadFont(ResourcePath.PIXEL, 40f);
-        } catch (IOException | FontFormatException e) {
-            e.printStackTrace();
-            System.out.println("RoundButtonFehler");
-        }
-        setFont(pixelFont);
+        setFont(new Font("Arial", Font.BOLD, 18)); // Default font
         setFocusPainted(false);
         setBorderPainted(false);
         setContentAreaFilled(false);
     }
+
 
     /**
      * Method to customize the font size of the button's text.
@@ -99,6 +94,18 @@ public class RoundButton extends JButton {
         // Overridden for circular hit detection
         Shape shape = new Ellipse2D.Float(0, 0, getWidth(), getHeight());
         return shape.contains(x, y);
+    }
+
+    public void changeBackgroundColor(Color color) {
+        setBackground(color);
+        borderColor = color; // Change the border color to match the background
+        repaint(); // Repaint the button to show the new color
+    }
+
+    public void setDefaultColor() {
+        setBackground(Color.BLACK);
+        borderColor = Color.WHITE; // Change the border color to match the background
+        repaint(); // Repaint the button to show the new color
     }
 
 }

@@ -53,7 +53,7 @@ public class QuestionPanel extends JPanel {
         setLayout(null);
 
         // Components initialization
-        questionLabel = new StrokedLabel("", new Color(0, 0, 0), 1, ResourcePath.PIXEL, 60f);
+        questionLabel = new StrokedLabel("", new Color(0, 0, 0), 1);
         questionLabel.setForeground(new Color(255, 255, 255));
         questionLabel.setBounds(53, 38, 618, 85);
 
@@ -131,7 +131,7 @@ public class QuestionPanel extends JPanel {
         // Continue Button
         RoundButton continueButton = new RoundButton("next");
         continueButton.setBounds(585, 413, 85, 31);
-        continueButton.customizeFont(25);
+        continueButton.customizeFont(20);
         // Add a boolean variable to track whether the button has been clicked
         buttonClicked = false;
         continueButton.addActionListener(e -> {

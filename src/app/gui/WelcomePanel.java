@@ -34,7 +34,7 @@ public class WelcomePanel extends JPanel {
         add(closeButton);
 
         // Welcome Label
-        StrokedLabel welcomeLabel = new StrokedLabel("Dark IT-Quiz", new Color(0, 0, 0), 2, ResourcePath.CRUISER, 40f);
+        StrokedLabel welcomeLabel = new StrokedLabel("Dark IT-Quiz", new Color(0, 0, 0), 2);
         welcomeLabel.setBounds(146, 50, 396, 138);
         add(welcomeLabel);
 

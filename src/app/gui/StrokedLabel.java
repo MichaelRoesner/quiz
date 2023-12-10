@@ -1,13 +1,12 @@
 package app.gui;
 
-import app.utility.FontLoader;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.font.FontRenderContext;
 import java.awt.font.TextLayout;
 import java.awt.geom.AffineTransform;
-import java.io.IOException;
+
 
 public class StrokedLabel extends JLabel {
     private final Color strokeColor;
@@ -15,18 +14,11 @@ public class StrokedLabel extends JLabel {
 
 
     // Constructor
-    public StrokedLabel(String text, Color strokeColor, int strokeThickness, String fontPath, float fontSize) {
+    public StrokedLabel(String text, Color strokeColor, int strokeThickness) {
         super(text);
         this.strokeColor = strokeColor;
         this.strokeThickness = strokeThickness;
-        Font customFont;
-        try {
-            customFont = FontLoader.loadFont(fontPath, fontSize);
-            setFont(customFont);
-        } catch (IOException | FontFormatException e) {
-            e.printStackTrace();
-            System.out.println("StrokedLabelFehler");
-        }
+        setFont(new Font("Arial", Font.BOLD, 30));
 
 
         setForeground(Color.WHITE);

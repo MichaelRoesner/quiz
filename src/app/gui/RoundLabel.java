@@ -1,11 +1,8 @@
 package app.gui;
 
-import app.utility.FontLoader;
-import app.utility.ResourcePath;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 /**
  * Custom JLabel class that renders a round label with customizable appearance.
@@ -23,14 +20,7 @@ public class RoundLabel extends JLabel {
         borderColor = Color.WHITE; // Default border color
         setForeground(Color.WHITE); // Default font color
         setBackground(Color.BLACK); // Default background color
-        try {
-            Font pixelFont = FontLoader.loadFont(ResourcePath.PIXEL, 25f);
-            pixelFont = pixelFont.deriveFont(Font.BOLD);
-            setFont(pixelFont);
-        } catch (IOException | FontFormatException e) {
-            e.printStackTrace();
-            System.out.println("RoundLabelFehler");
-        }
+        setFont(new Font("Arial", Font.BOLD, 10)); // Set initial font size to 10
         setHorizontalAlignment(SwingConstants.CENTER); // Center the text
         setOpaque(false);
     }

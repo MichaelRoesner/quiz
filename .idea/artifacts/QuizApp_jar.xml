@@ -4,6 +4,7 @@
     <root id="archive" name="QuizApp.jar">
       <element id="module-output" name="QuizApp" />
       <element id="library" level="project" name="lib" />
+      <element id="dir-copy" path="$PROJECT_DIR$/resources" />
     </root>
   </artifact>
 </component>
