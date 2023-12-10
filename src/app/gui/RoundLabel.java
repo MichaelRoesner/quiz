@@ -28,7 +28,8 @@ public class RoundLabel extends JLabel {
             pixelFont = pixelFont.deriveFont(Font.BOLD);
             setFont(pixelFont);
         } catch (IOException | FontFormatException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.out.println("RoundLabelFehler");
         }
         setHorizontalAlignment(SwingConstants.CENTER); // Center the text
         setOpaque(false);

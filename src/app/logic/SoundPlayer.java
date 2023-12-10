@@ -25,6 +25,7 @@ public class SoundPlayer {
                 clip.start();
             } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
                 e.printStackTrace();
+                System.out.println("SoundPlayer Fehler");
             }
         }).start();
     }

@@ -29,7 +29,8 @@ public class RoundButton extends JButton {
         try {
             pixelFont = FontLoader.loadFont(ResourcePath.PIXEL, 40f);
         } catch (IOException | FontFormatException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.out.println("RoundButtonFehler");
         }
         setFont(pixelFont);
         setFocusPainted(false);

@@ -22,10 +22,11 @@ public class StrokedLabel extends JLabel {
         Font customFont;
         try {
             customFont = FontLoader.loadFont(fontPath, fontSize);
+            setFont(customFont);
         } catch (IOException | FontFormatException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.out.println("StrokedLabelFehler");
         }
-        setFont(customFont);
 
 
         setForeground(Color.WHITE);
